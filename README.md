@@ -1,1 +1,1 @@
-# Thread-Sinc
+# Bot Discord
