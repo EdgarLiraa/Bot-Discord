@@ -77,8 +77,12 @@ class Greetings(commands.Cog):
     @commands.command(name="play", aliases=["p","playing"], help="Plays a selected song from youtube")
     async def play(self, ctx, *args):
         query = " ".join(args)
-        
+
+        #x=open("teste", "w")
+        #x.write(str(ctx.author))
         voice_channel = ctx.author.voice.channel
+        #if str(ctx.author) == "hessell":
+        #    await ctx.send("burro!")
         if voice_channel is None:
             #you need to be connected so that the bot knows where to go
             await ctx.send("Entra em um canal, burro!")
@@ -119,7 +123,9 @@ class Greetings(commands.Cog):
 
     @commands.command(name="skip", aliases=["s"], help="Skips the current song being played")
     async def skip(self, ctx):
-        if self.vc != None and self.vc:
+        if ctx.author == "predoabisminho":
+            self.send("Evita Dog!")
+        elif self.vc != None and self.vc:
             self.vc.stop()
             #try to play next in the queue if it exists
             await self.play_music(ctx)
